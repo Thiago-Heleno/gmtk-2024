@@ -1,0 +1,278 @@
+[gd_scene load_steps=14 format=3 uid="uid://4e2be7cvkt73"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_kkqy8"]
+[ext_resource type="PackedScene" uid="uid://w60j47qf264u" path="res://scenes/border.tscn" id="3_hjd0a"]
+[ext_resource type="AudioStream" uid="uid://cctxgoih32bdg" path="res://sfx/click.wav" id="4_o3lgn"]
+[ext_resource type="FontFile" uid="uid://70jankanw3br" path="res://fonts/FFFFORWA.TTF" id="5_0mkh1"]
+[ext_resource type="Texture2D" uid="uid://dcrhwwasdycnn" path="res://assets/tutorial_1.webp" id="5_unc4j"]
+[ext_resource type="Texture2D" uid="uid://cweab8a5ci7dg" path="res://assets/tutorial_2.png" id="6_3ifpc"]
+[ext_resource type="Texture2D" uid="uid://b6dj7yq10qho6" path="res://assets/tutorial_3.png" id="7_jqgkg"]
+[ext_resource type="Texture2D" uid="uid://djlynj05gnv73" path="res://assets/tutorial_4.png" id="8_1ea4x"]
+[ext_resource type="Texture2D" uid="uid://bpfw2jvkuab06" path="res://assets/tutorial_5.png" id="9_nl6o3"]
+[ext_resource type="VideoStream" path="res://assets/GodotVideoTut.ogv" id="10_nax01"]
+[ext_resource type="Texture2D" uid="uid://d34rfvofn7ys1" path="res://assets/Controls_1.png" id="11_ydlxd"]
+[ext_resource type="Texture2D" uid="uid://df3xtqt1ygl7v" path="res://assets/Controls_2.png" id="12_x0sdt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w45vi"]
+bg_color = Color(0, 0, 0.658824, 1)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_kkqy8")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ClickSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_o3lgn")
+
+[node name="Border" parent="." instance=ExtResource("3_hjd0a")]
+
+[node name="Menu2" type="Control" parent="Border"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 581.0
+offset_top = 322.0
+offset_right = 621.0
+offset_bottom = 362.0
+
+[node name="Label" type="Label" parent="Border/Menu2"]
+layout_mode = 0
+offset_left = -566.0
+offset_top = -210.0
+offset_right = 555.0
+offset_bottom = -120.0
+theme_override_fonts/font = ExtResource("5_0mkh1")
+theme_override_font_sizes/font_size = 45
+text = "Shrinking Dungeon"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Border/Menu2"]
+layout_mode = 0
+offset_left = 435.0
+offset_top = 278.0
+offset_right = 551.0
+offset_bottom = 301.0
+theme_override_fonts/font = ExtResource("5_0mkh1")
+text = "Version: 1.0"
+
+[node name="Label3" type="Label" parent="Border/Menu2"]
+layout_mode = 0
+offset_left = -498.0
+offset_top = 177.0
+offset_right = -382.0
+offset_bottom = 200.0
+theme_override_fonts/font = ExtResource("5_0mkh1")
+text = "Controls:"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Border/Menu2"]
+layout_mode = 0
+offset_left = -503.0
+offset_top = 245.0
+offset_right = -387.0
+offset_bottom = 268.0
+theme_override_fonts/font = ExtResource("5_0mkh1")
+text = "or"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="Border/Menu2"]
+z_index = -2
+layout_mode = 0
+offset_left = -577.0
+offset_top = -248.0
+offset_right = 568.0
+offset_bottom = 318.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_w45vi")
+
+[node name="PlayBtn" type="Button" parent="Border/Menu2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.024
+anchor_top = 0.039
+anchor_right = 0.024
+anchor_bottom = 0.039
+offset_left = -59.96
+offset_top = -49.56
+offset_right = 51.04
+offset_bottom = -9.56
+theme_override_fonts/font = ExtResource("5_0mkh1")
+action_mode = 0
+text = "Play"
+
+[node name="HowToPlayBtn" type="Button" parent="Border/Menu2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.024
+anchor_top = 0.039
+anchor_right = 0.024
+anchor_bottom = 0.039
+offset_left = -72.96
+offset_top = 50.44
+offset_right = 69.04
+offset_bottom = 90.44
+theme_override_fonts/font = ExtResource("5_0mkh1")
+action_mode = 0
+text = "How to play?"
+
+[node name="Sprite2D" type="Sprite2D" parent="Border/Menu2"]
+position = Vector2(-504, 252)
+scale = Vector2(1.76, 1.76)
+texture = ExtResource("11_ydlxd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Border/Menu2"]
+position = Vector2(-391, 254)
+scale = Vector2(1.76, 1.76)
+texture = ExtResource("12_x0sdt")
+
+[node name="HowToPlayPanel2" type="Control" parent="Border/Menu2"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HowToPlayBG" type="PanelContainer" parent="Border/Menu2/HowToPlayPanel2"]
+layout_mode = 0
+offset_left = -579.0
+offset_top = -245.0
+offset_right = 566.0
+offset_bottom = 321.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_w45vi")
+
+[node name="NextPage" type="Button" parent="Border/Menu2/HowToPlayPanel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.024
+anchor_top = 0.039
+anchor_right = 0.024
+anchor_bottom = 0.039
+offset_left = -87.96
+offset_top = 226.44
+offset_right = 168.04
+offset_bottom = 288.44
+scale = Vector2(0.68, 0.744086)
+theme_override_fonts/font = ExtResource("5_0mkh1")
+theme_override_font_sizes/font_size = 29
+action_mode = 0
+text = "Next Page ->"
+
+[node name="Label" type="Label" parent="Border/Menu2/HowToPlayPanel2"]
+layout_mode = 0
+offset_left = -557.0
+offset_top = -230.0
+offset_right = -61.0
+offset_bottom = -207.0
+theme_override_fonts/font = ExtResource("5_0mkh1")
+text = "The Game Window Gets Smaller Every 2 Seconds"
+
+[node name="Label2" type="Label" parent="Border/Menu2/HowToPlayPanel2"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = -230.0
+offset_right = 507.0
+offset_bottom = -207.0
+theme_override_fonts/font = ExtResource("5_0mkh1")
+text = "Reach the end of each dungeon level to progress"
+
+[node name="Label3" type="Label" parent="Border/Menu2/HowToPlayPanel2"]
+layout_mode = 0
+offset_left = -552.0
+offset_top = 15.0
+offset_right = -56.0
+offset_bottom = 38.0
+theme_override_fonts/font = ExtResource("5_0mkh1")
+text = "Avoid the enemies"
+
+[node name="Label4" type="Label" parent="Border/Menu2/HowToPlayPanel2"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 526.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("5_0mkh1")
+text = "Collect Clocks to increase the Window size"
+
+[node name="Sprite2D" type="Sprite2D" parent="Border/Menu2/HowToPlayPanel2"]
+position = Vector2(-421, -126)
+scale = Vector2(0.353404, 0.353404)
+texture = ExtResource("5_unc4j")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Border/Menu2/HowToPlayPanel2"]
+position = Vector2(-177, -102)
+scale = Vector2(0.233405, 0.233405)
+texture = ExtResource("6_3ifpc")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Border/Menu2/HowToPlayPanel2"]
+position = Vector2(245, -112)
+scale = Vector2(0.993406, 0.993406)
+texture = ExtResource("7_jqgkg")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Border/Menu2/HowToPlayPanel2"]
+position = Vector2(-314, 167)
+scale = Vector2(1.83341, 1.83341)
+texture = ExtResource("8_1ea4x")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Border/Menu2/HowToPlayPanel2"]
+position = Vector2(254, 160)
+scale = Vector2(1.83341, 1.83341)
+texture = ExtResource("9_nl6o3")
+
+[node name="HowToPlayPanel3" type="Control" parent="Border/Menu2"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HowToPlayBG" type="PanelContainer" parent="Border/Menu2/HowToPlayPanel3"]
+layout_mode = 0
+offset_left = -579.0
+offset_top = -245.0
+offset_right = 566.0
+offset_bottom = 321.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_w45vi")
+
+[node name="ReturnBtn" type="Button" parent="Border/Menu2/HowToPlayPanel3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.024
+anchor_top = 0.039
+anchor_right = 0.024
+anchor_bottom = 0.039
+offset_left = -58.96
+offset_top = 249.44
+offset_right = 52.04
+offset_bottom = 289.44
+theme_override_fonts/font = ExtResource("5_0mkh1")
+action_mode = 0
+text = "Return"
+
+[node name="Label" type="Label" parent="Border/Menu2/HowToPlayPanel3"]
+layout_mode = 0
+offset_left = -249.0
+offset_top = -212.0
+offset_right = 247.0
+offset_bottom = -189.0
+theme_override_fonts/font = ExtResource("5_0mkh1")
+text = "Move the game Window using your mouse cursor
+to collect blocked Clocks around the map"
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Border/Menu2/HowToPlayPanel3"]
+layout_mode = 0
+offset_left = -307.0
+offset_top = -144.0
+offset_right = 1613.0
+offset_bottom = 944.0
+scale = Vector2(0.320001, 0.320001)
+stream = ExtResource("10_nax01")
+loop = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Border/Menu2/PlayBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="Border/Menu2/HowToPlayBtn" to="." method="_on_how_to_play_btn_pressed"]
+[connection signal="pressed" from="Border/Menu2/HowToPlayPanel2/NextPage" to="." method="_on_next_page_pressed"]
+[connection signal="pressed" from="Border/Menu2/HowToPlayPanel3/ReturnBtn" to="." method="_on_return_btn_pressed"]

@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=3 uid="uid://w60j47qf264u"]
+
+[ext_resource type="Script" path="res://scripts/border.gd" id="1_1r8mm"]
+[ext_resource type="FontFile" uid="uid://70jankanw3br" path="res://fonts/FFFFORWA.TTF" id="2_hicaa"]
+[ext_resource type="Texture2D" uid="uid://dxxxsewgaw1n6" path="res://assets/adcvq7cfkgu16c8asek54nboqs-7849c90e685cfc97bcc81d3fb1db0e5a.png" id="2_x4ft0"]
+
+[node name="Border" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -579.0
+offset_top = -325.0
+offset_right = 567.0
+offset_bottom = 319.0
+script = ExtResource("1_1r8mm")
+
+[node name="BorderImg" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(578, 322)
+scale = Vector2(2.117, 1.78889)
+texture = ExtResource("2_x4ft0")
+
+[node name="MenuBtn" type="Button" parent="BorderImg"]
+offset_left = -268.777
+offset_top = -155.963
+offset_right = -223.777
+offset_bottom = -132.963
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_hicaa")
+theme_override_font_sizes/font_size = 10
+text = "Menu"
+flat = true
+
+[node name="ElapsedTimeLabel" type="Label" parent="BorderImg"]
+offset_left = 187.53
+offset_top = -155.963
+offset_right = 269.53
+offset_bottom = -132.963
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_hicaa")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseGameBtn" type="Button" parent="."]
+z_index = 2
+layout_mode = 1
+offset_left = 6.0
+offset_top = 3.00003
+offset_right = 49.0
+offset_bottom = 41.0
+action_mode = 0
+text = "X"
+
+[node name="RestartLevelBtn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.024
+anchor_top = 0.039
+anchor_right = 0.024
+anchor_bottom = 0.039
+offset_left = 1082.5
+offset_top = -21.116
+offset_right = 1119.5
+offset_bottom = 18.884
+action_mode = 0
+
+[node name="DragWindowBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 5.0
+offset_right = 1102.0
+offset_bottom = 42.0
+
+[connection signal="pressed" from="BorderImg/MenuBtn" to="." method="_on_menu_btn_pressed"]
+[connection signal="pressed" from="CloseGameBtn" to="." method="_on_close_game_btn_pressed"]
+[connection signal="pressed" from="RestartLevelBtn" to="." method="_on_restart_level_btn_pressed"]
+[connection signal="button_down" from="DragWindowBtn" to="." method="_on_drag_window_btn_button_down"]
+[connection signal="button_up" from="DragWindowBtn" to="." method="_on_drag_window_btn_button_up"]

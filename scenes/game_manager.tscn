@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://baqp5qw4hwlno"]
+
+[ext_resource type="AudioStream" uid="uid://cctxgoih32bdg" path="res://sfx/click.wav" id="1_2uqgx"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_lqgwg"]
+[ext_resource type="AudioStream" uid="uid://djyq6wrpfmwq3" path="res://sfx/gamejam_soundtrack.mp3" id="3_i4flb"]
+[ext_resource type="AudioStream" uid="uid://dwcgyj2cxtijg" path="res://sfx/power_up.wav" id="4_n7g3d"]
+[ext_resource type="AudioStream" uid="uid://bwf1s61nv8wjn" path="res://sfx/hurt.wav" id="5_r0frm"]
+
+[node name="GameManager" type="Node2D"]
+script = ExtResource("1_lqgwg")
+
+[node name="click_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_2uqgx")
+
+[node name="soundtrack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_i4flb")
+autoplay = true
+parameters/looping = true
+
+[node name="power_up" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_n7g3d")
+
+[node name="restart_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_r0frm")

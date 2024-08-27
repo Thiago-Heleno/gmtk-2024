@@ -1,0 +1,86 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxxfhu857iq3m"]
+
+[ext_resource type="PackedScene" uid="uid://w60j47qf264u" path="res://scenes/border.tscn" id="1_0deey"]
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_q0308"]
+[ext_resource type="FontFile" uid="uid://70jankanw3br" path="res://fonts/FFFFORWA.TTF" id="2_7uxbf"]
+[ext_resource type="AudioStream" uid="uid://cctxgoih32bdg" path="res://sfx/click.wav" id="2_84ian"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w45vi"]
+bg_color = Color(1, 0, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_q0308")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ClickSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_84ian")
+
+[node name="Border" parent="." instance=ExtResource("1_0deey")]
+
+[node name="Menu2" type="Control" parent="Border"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 581.0
+offset_top = 322.0
+offset_right = 621.0
+offset_bottom = 362.0
+
+[node name="Label" type="Label" parent="Border/Menu2"]
+layout_mode = 0
+offset_left = -566.0
+offset_top = -210.0
+offset_right = 555.0
+offset_bottom = -120.0
+theme_override_fonts/font = ExtResource("2_7uxbf")
+theme_override_font_sizes/font_size = 45
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="Border/Menu2"]
+z_index = -2
+layout_mode = 0
+offset_left = -577.0
+offset_top = -248.0
+offset_right = 568.0
+offset_bottom = 318.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_w45vi")
+
+[node name="RestartLevelBtn" type="Button" parent="Border/Menu2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.024
+anchor_top = 0.039
+anchor_right = 0.024
+anchor_bottom = 0.039
+offset_left = -76.96
+offset_top = -43.56
+offset_right = 71.04
+offset_bottom = -3.56
+theme_override_fonts/font = ExtResource("2_7uxbf")
+action_mode = 0
+text = "Restart Level"
+
+[node name="MainMenuBtn" type="Button" parent="Border/Menu2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.024
+anchor_top = 0.039
+anchor_right = 0.024
+anchor_bottom = 0.039
+offset_left = -72.96
+offset_top = 50.44
+offset_right = 69.04
+offset_bottom = 90.44
+theme_override_fonts/font = ExtResource("2_7uxbf")
+action_mode = 0
+text = "Main Menu"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Border/Menu2/RestartLevelBtn" to="." method="_on_restart_level_btn_pressed"]
+[connection signal="pressed" from="Border/Menu2/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
